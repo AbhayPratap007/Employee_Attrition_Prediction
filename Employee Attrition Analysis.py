@@ -24,7 +24,7 @@ sns.countplot(x="Attrition",hue ='salary',data=HR_Data)
 
 #data type for each column
 HR_Data.info()
-#Check fro missing values
+#Check for missing values
 HR_Data.isnull().any()
 
 #one-hot-encoding, using dummies var to handle categorical var
