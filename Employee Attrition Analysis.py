@@ -60,12 +60,20 @@ confusion_matrix(y_test,y_predict)
 
 #Accuracy = (3552+466)/(3624+302+680+466) => 79.2%
 
+#Accuracy Score
+from sklearn.metrics import accuracy_score 
+print(accuracy_score(y_test, y_predict)*100)
+
+#Classification report such: precision,recall,f1-score,supportfrom sklearn.metrics import classification_report 
+print(classification_report(y_test,y_predict))
+
 # coefficient
 print(logmodel.coef_)
+
 # intercept
 print(logmodel.intercept_)
 
-#--------------To Improve the accuracy of the model use Backward elimination---------------
+#--------------To Improve the accuracy of the model use Backward elimination(Remove those variables whose does not have significant value p>=0.05)---------------
 
 import statsmodels.api as sm
 import numpy as nm 
@@ -111,7 +119,6 @@ regressor_OLS=sm.OLS(endog = y1, exog=x_opt).fit()
 regressor_OLS.summary()
 
 #Building logisticRegression model
-
 from sklearn.model_selection import train_test_split
 x_BE_train, x_BE_test, y_BE_train, y_BE_test= train_test_split(x_opt, y1, test_size=0.3, random_state=0)
 
@@ -126,6 +133,14 @@ from sklearn.metrics import confusion_matrix
 confusion_matrix(y_BE_test,y_BE_predict)
 
 #Accuracy = (3209+365)/(3209+253+673+365) => 79.4%
+
+#Accuracy Score
+from sklearn.metrics import accuracy_score 
+print(accuracy_score(y_BE_test, y_BE_predict)*100)
+
+#Classification report such: precision,recall,f1-score,support
+from sklearn.metrics import classification_report 
+print(classification_report(y_BE_test,y_BE_predict))
 
 #Calculating the coefficients:
 print(logmodel.coef_)
