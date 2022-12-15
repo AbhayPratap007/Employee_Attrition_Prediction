@@ -14,8 +14,8 @@ import seaborn as sns
 #import data
 HR_Data = pd.read_csv('E:/Data Analytics/Project/HR_Data.csv')
 
-#replace 'left' with 'Attrition' 
-#HR_Data = HR_Data.rename(columns={'left':'Attrition'})
+replace 'left' with 'Attrition' 
+HR_Data = HR_Data.rename(columns={'left':'Attrition'})
 
 #Analyze data
 sns.countplot(x="Attrition",data=HR_Data)
