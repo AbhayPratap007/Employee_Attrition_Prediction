@@ -134,6 +134,12 @@ confusion_matrix(y_BE_test,y_BE_predict)
 
 #Accuracy = (3209+365)/(3209+253+673+365) => 79.4%
 
+#Calculating the coefficients:
+print(logmodel.coef_)
+
+#Calculating the intercept:
+print(logmodel.intercept_)
+
 #Accuracy Score
 from sklearn.metrics import accuracy_score 
 print(accuracy_score(y_BE_test, y_BE_predict)*100)
@@ -141,9 +147,3 @@ print(accuracy_score(y_BE_test, y_BE_predict)*100)
 #Classification report such: precision,recall,f1-score,support
 from sklearn.metrics import classification_report 
 print(classification_report(y_BE_test,y_BE_predict))
-
-#Calculating the coefficients:
-print(logmodel.coef_)
-
-#Calculating the intercept:
-print(logmodel.intercept_)
